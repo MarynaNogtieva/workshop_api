@@ -31,5 +31,9 @@ module WorkshopApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Use structure.sql for migrations: 
+    # https://blog.appsignal.com/2020/01/15/the-pros-and-cons-of-using-structure-sql-in-your-ruby-on-rails-application.html
+    config.active_record.schema_format = :sql
   end
 end
