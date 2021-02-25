@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Linting
 gem 'rubocop', '~> 1.10', require: false
 gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 
 group :development, :test do
