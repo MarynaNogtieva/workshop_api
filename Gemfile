@@ -7,6 +7,9 @@ ruby '2.6.6'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# Database related gems
+gem 'strong_migrations'  # bundle install => rails generate strong_migrations:install
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
