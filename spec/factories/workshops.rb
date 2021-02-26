@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :workshop do
-    title { "MyString" }
-    short_description { "MyText" }
-    long_description { "MyText" }
+    sequence(:title) { |n| "MyTitle #{n}" }
+    short_description { 'MyText' }
+    long_description { 'MyText' }
   end
 end

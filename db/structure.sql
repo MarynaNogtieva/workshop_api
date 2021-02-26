@@ -72,7 +72,10 @@ CREATE TABLE public.workshops (
     short_description text,
     long_description text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    CONSTRAINT non_empty_workshop_info_check CHECK ((((title)::text <> ''::text) AND (short_description <> ''::text))),
+    CONSTRAINT workshops_short_description_null CHECK ((short_description IS NOT NULL)),
+    CONSTRAINT workshops_title_null CHECK ((title IS NOT NULL))
 );
 
 
@@ -133,6 +136,9 @@ ALTER TABLE ONLY public.workshops
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
-('20210223030757');
+('20210223030757'),
+('20210225032109'),
+('20210226024901'),
+('20210226025809');
 
 
