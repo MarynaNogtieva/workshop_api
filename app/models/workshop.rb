@@ -1,4 +1,4 @@
 class Workshop < ApplicationRecord
-  validates :title, presence: true
-  validates :short_description, presence: true
+  validates :title, :short_description, presence: true
+  validates :title, uniqueness: true
 end
