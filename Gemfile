@@ -13,7 +13,8 @@ gem 'strong_migrations' # Catch unsafe migrations # bundle install => rails gene
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.5' # Create JSON structures via a Builder-style DSL
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -55,7 +56,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 4.0', require: false # Simple one-liner tests for common Rails functionality
-  gem 'factory_bot_rails', '~> 5.2', # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
+  gem 'factory_bot_rails', '~> 5.2' # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
 end
 
 
