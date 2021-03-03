@@ -13,7 +13,9 @@ gem 'strong_migrations' # Catch unsafe migrations # bundle install => rails gene
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5' # Create JSON structures via a Builder-style DSL
+# gem 'jbuilder', '~> 2.5' # Create JSON structures via a Builder-style DSL
+gem 'blueprinter', '~> 0.25.2' # Blueprinter is a JSON Object Presenter for Ruby that takes business objects and breaks them down into simple hashes and serializes them to JSON
+gem 'oj', '~> 3.11', '>= 3.11.2' # The fastest JSON parser and object serializer
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
