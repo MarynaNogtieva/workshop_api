@@ -4,11 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.5' # Ruby on Rails
+
 # Database related gems
-gem 'strong_migrations'  # bundle install => rails generate strong_migrations:install
+gem 'pg', '>= 0.18', '< 2.0' # Pg is the Ruby interface to the PostgreSQL RDBMS
+gem 'strong_migrations' # Catch unsafe migrations # bundle install => rails generate strong_migrations:install
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -31,17 +31,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-# Linting
-gem 'rubocop', '~> 1.10', require: false
-gem 'rubocop-performance', require: false
-gem 'rubocop-rails', require: false
-gem 'rubocop-rspec', require: false
+
 
 group :development, :test do
+  # Linting
+  gem 'rubocop', '~> 1.10', require: false # Automatic Ruby style checking tool
+  gem 'rubocop-performance', require: false # A collection of RuboCop cops to check for performance optimizations in Ruby code
+  gem 'rubocop-rails', require: false # Automatic Rails code style checking tool
+  gem 'rubocop-rspec', require: false # Code style checking for RSpec files
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'  # rspec-rails is a testing framework for Rails 3+
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
-  gem 'factory_bot_rails', '~> 5.2'
+ 
 end
 
 group :development do
@@ -52,7 +54,8 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 4.0'
+  gem 'shoulda-matchers', '~> 4.0', require: false # Simple one-liner tests for common Rails functionality
+  gem 'factory_bot_rails', '~> 5.2', # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
 end
 
 
