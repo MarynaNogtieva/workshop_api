@@ -35,5 +35,6 @@ module WorkshopApi
     # Use structure.sql for migrations: 
     # https://blog.appsignal.com/2020/01/15/the-pros-and-cons-of-using-structure-sql-in-your-ruby-on-rails-application.html
     config.active_record.schema_format = :sql
+    config.autoload_paths << Rails.root.join('app', 'serializers')
   end
 end
