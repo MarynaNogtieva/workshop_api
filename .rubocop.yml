@@ -247,7 +247,7 @@ Style/SpecialGlobalVars:
 Style/StringLiterals:
   Description: 'Checks if uses of quotes match the configured preference.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-string-literals'
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
   Enabled: true
 
 Style/TrailingCommaInArguments:
@@ -326,7 +326,7 @@ Layout/ConditionPosition:
 Layout/DotPosition:
   Description: 'Checks the position of the dot in multi-line method calls.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains'
-  EnforcedStyle: trailing
+  EnforcedStyle: leading
 
 Layout/ExtraSpacing:
   Description: 'Do not use unnecessary spacing.'
@@ -352,9 +352,9 @@ Layout/InitialIndentation:
   Enabled: false
 
 Layout/LineLength:
-  Description: 'Limit lines to 80 characters.'
+  Description: 'Limit lines to 125 characters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
-  Max: 80
+  Max: 125
 
 # Lint
 
