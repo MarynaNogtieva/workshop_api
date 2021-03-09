@@ -12,9 +12,8 @@ class WorkshopsController < ApplicationController
 
   def workshops
     @workshops ||= \
-      Workshop.
-        all.
-        limit(20).
-        order("id DESC")
+      Workshop
+        .recent
+        .limit(20)
   end
 end
