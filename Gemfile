@@ -17,6 +17,10 @@ gem 'puma', '~> 3.11'
 gem 'blueprinter', '~> 0.25.2' # Blueprinter is a JSON Object Presenter for Ruby that takes business objects and breaks them down into simple hashes and serializes them to JSON
 gem 'oj', '~> 3.11', '>= 3.11.2' # The fastest JSON parser and object serializer
 
+gem 'pagy', '< 3.0' # Pagy is the ultimate pagination gem that outperforms the others in each and every benchmark and comparison.
+
+
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
