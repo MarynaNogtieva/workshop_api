@@ -41,6 +41,10 @@ Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'
   Enabled: false
 
+Metrics/BlockLength:
+  Description: 'Checks that the ABC size of methods is not higher than the configured maximum.'
+  Enabled: false
+
 Style/ClassVars:
   Description: 'Avoid the use of class variables.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-class-vars'
