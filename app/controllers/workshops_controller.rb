@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class WorkshopsController < ApplicationController
   def index
     limit = params[:limit].present? ? params[:limit] : 20
