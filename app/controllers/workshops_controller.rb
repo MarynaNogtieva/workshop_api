@@ -1,6 +1,7 @@
 class WorkshopsController < ApplicationController
   def index
-    render(json: WorkshopsIndexBlueprint.render(workshops, root: :data),
+    @pagy, @workshops = pagy(workshops, page: params[:page_number] ,items: params[:limit])
+    render(json: WorkshopsIndexBlueprint.render(@workshops, root: :data),
            status: :ok)
   end
 
@@ -11,9 +12,6 @@ class WorkshopsController < ApplicationController
   private
 
   def workshops
-    @workshops ||= \
-      Workshop
-        .recent
-        .limit(20)
+    Workshop.recent.limit(50)
   end
 end
