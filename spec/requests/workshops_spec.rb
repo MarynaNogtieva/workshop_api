@@ -32,12 +32,23 @@ RSpec.describe WorkshopsController, type: :request do
       expect(ids).to eq([recent_workshop.id, older_workshop.id])
     end
 
-    it 'paginates results' do
-      workshop1, workshop2, workshop3 = create_list(:workshop, 3)
-      get '/workshops', params: { page_number: 2, limit: 1 }
+    it 'paginates results with provided limit' do
+      _, workshop2, workshop3 = create_list(:workshop, 3)
+      get '/workshops', { params: { page_number: 2, limit: 1 } }
       response_data = JSON.parse(response.body).deep_symbolize_keys[:data]
       expect(response_data.size).to eq(1)
       expect(response_data.first[:id]).to eq(workshop2.id)
+    end
+
+    it 'paginates results with deefault limit' do
+      create_list(:workshop, 35)
+      get '/workshops', { params: { page_number: 1 } }
+      response_data = JSON.parse(response.body).deep_symbolize_keys[:data]
+      expect(response_data.size).to eq(20)
+
+      get '/workshops', { params: { page_number: 2 } }
+      response_data = JSON.parse(response.body).deep_symbolize_keys[:data]
+      expect(response_data.size).to eq(15)
     end
   end
 end
