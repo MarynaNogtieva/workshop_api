@@ -33,8 +33,8 @@ RSpec.describe WorkshopsController, type: :request do
     end
 
     it 'paginates results' do
-      workshop1, workshop2, worckshop3 = create_list(:workshop, 3)
-      get '/workshops', params: { page_number: 2, limit: 1 } 
+      workshop1, workshop2, workshop3 = create_list(:workshop, 3)
+      get '/workshops', params: { page_number: 2, limit: 1 }
       response_data = JSON.parse(response.body).deep_symbolize_keys[:data]
       expect(response_data.size).to eq(1)
       expect(response_data.first[:id]).to eq(workshop2.id)
