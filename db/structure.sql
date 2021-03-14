@@ -63,6 +63,37 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: skills; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.skills (
+    id bigint NOT NULL,
+    name character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: skills_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.skills_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: skills_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.skills_id_seq OWNED BY public.skills.id;
+
+
+--
 -- Name: workshops; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -99,6 +130,13 @@ ALTER SEQUENCE public.workshops_id_seq OWNED BY public.workshops.id;
 
 
 --
+-- Name: skills id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.skills ALTER COLUMN id SET DEFAULT nextval('public.skills_id_seq'::regclass);
+
+
+--
 -- Name: workshops id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -122,6 +160,22 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: skills skills_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.skills
+    ADD CONSTRAINT skills_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: skills uniq_skills_name; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.skills
+    ADD CONSTRAINT uniq_skills_name UNIQUE (name);
+
+
+--
 -- Name: workshops workshops_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -139,6 +193,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210223030757'),
 ('20210225032109'),
 ('20210226024901'),
-('20210226025809');
+('20210226025809'),
+('20210313234711'),
+('20210313235958');
 
 
