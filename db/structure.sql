@@ -54,6 +54,37 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: participation_levels; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.participation_levels (
+    id bigint NOT NULL,
+    name character varying(100) NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: participation_levels_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.participation_levels_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: participation_levels_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.participation_levels_id_seq OWNED BY public.participation_levels.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -130,6 +161,13 @@ ALTER SEQUENCE public.workshops_id_seq OWNED BY public.workshops.id;
 
 
 --
+-- Name: participation_levels id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.participation_levels ALTER COLUMN id SET DEFAULT nextval('public.participation_levels_id_seq'::regclass);
+
+
+--
 -- Name: skills id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -152,6 +190,14 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 
 --
+-- Name: participation_levels participation_levels_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.participation_levels
+    ADD CONSTRAINT participation_levels_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -165,6 +211,14 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.skills
     ADD CONSTRAINT skills_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: participation_levels uniq_participation_levels_name; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.participation_levels
+    ADD CONSTRAINT uniq_participation_levels_name UNIQUE (name);
 
 
 --
@@ -195,6 +249,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210226024901'),
 ('20210226025809'),
 ('20210313234711'),
-('20210313235958');
+('20210313235958'),
+('20210316004632'),
+('20210316005103');
 
 
