@@ -53,4 +53,27 @@ RSpec.describe WorkshopsController, type: :request do
       expect(response_data.size).to eq(15)
     end
   end
+
+  describe '#show' do
+    let(:workshop) { create(:workshop) }
+    subject { get "/workshops/#{workshop.id}" }
+
+    before { subject }
+
+    it 'returns a success response' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'returns correct JSON body' do
+      body = JSON.parse(response.body).deep_symbolize_keys
+      expect(body).to eq(
+        {
+          id: workshop.id,
+          title: workshop.title,
+          short_description: workshop.short_description,
+          long_description: workshop.long_description,
+        },
+      )
+    end
+  end
 end

@@ -12,7 +12,14 @@ class WorkshopsController < ApplicationController
 
   def create; end
 
-  def show; end
+  def show
+    workshop = Workshop.find(params[:id])
+    render(
+      json: WorkshopShowBlueprint.render(workshop),
+      status: :ok,
+    )
+  end
+
 
   private
 
